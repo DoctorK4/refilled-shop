@@ -7,12 +7,16 @@ class CustomError_Class extends Error {
      headers: string;
   };
 }
-
-const BASE_URL:string = "https://file.refilled.co.kr/assignment/product.json";
+// const BASE_URL:string = "https://file.refilled.co.kr/assignment/product.json";
+const END_POINT:string = "/assignment/product.json";
 
 export const getProductList = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(END_POINT, {
+      headers: {
+        withCredentials: true,
+      }
+    });
     console.log(response);
     return response.data;
   } catch (error: unknown) {

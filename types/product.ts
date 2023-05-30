@@ -9,10 +9,10 @@ export type product = {
   } | undefined, 
   desc: string | null,
   imageUrl : string,
-  productOptions?: productOptions, 
+  productOptions: productOptions[] | [], 
 }
 
-type productOptions = {
+export type productOptions = {
   id:number,
   name:string,
   price:number,
