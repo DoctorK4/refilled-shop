@@ -1,0 +1,13 @@
+.optionsWrapper {
+  width: 300px;
+  height: 350px;
+  background-color: #FFF;
+}
+
+.addCartButton {
+  background-color: #1a1a1a;
+  
+  & :hover {
+    background-color: #e6e6e6;
+  }
+}

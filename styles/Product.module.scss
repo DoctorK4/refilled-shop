@@ -1,0 +1,16 @@
+.productWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.productName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  width: 160px;
+}
+.productDesc {
+  color: #808080;
+  font-weight: 400;
+  font-size: 12px;
+}
