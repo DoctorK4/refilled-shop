@@ -8,7 +8,7 @@ class CustomError_Class extends Error {
   };
 }
 
-const BASE_URL = "https://file.refilled.co.kr/assignment/product.json";
+const BASE_URL:string = "https://file.refilled.co.kr/assignment/product.json";
 
 export const getProductList = async () => {
   try {
