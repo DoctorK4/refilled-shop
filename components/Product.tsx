@@ -11,6 +11,7 @@ export default function Product({ productInfo }:{ productInfo:product }) {
     e.preventDefault();
     setShowOptions(true);
   }
+  const discountRate = Math.round(productInfo.price/productInfo.originPrice * 100);
 
   return (
     <>
@@ -21,18 +22,42 @@ export default function Product({ productInfo }:{ productInfo:product }) {
           src={productInfo.imageUrl} 
           alt=""
         />
-        {productInfo.tag ? 
-          <Badge badgeType={productInfo?.tag.text}>{productInfo?.tag.text}</Badge> 
-          : null
+        { productInfo.tag ? 
+          <>
+            <Badge badgeType={productInfo?.tag.text}>
+              {productInfo?.tag.text}
+            </Badge> 
+            <h3 className={styles.productNameWithBadge}>
+              {productInfo.name}
+            </h3>
+          </>
+          : 
+          <h3 className={styles.productName}>
+            {productInfo.name}
+          </h3>
         }
-        <h3 className={styles.productName}>
-          {productInfo.name}
-        </h3>
         <p className={styles.productDesc}>
           {productInfo.desc}
         </p>
-        {productInfo.originPrice}
-        {productInfo.price}
+        { productInfo.price === productInfo.originPrice ?
+          <p>
+            <strong className={styles.price}>
+              {productInfo.price.toLocaleString()}원
+            </strong>
+          </p>
+          :
+          <>
+            <p className={styles.originPrice}>
+              {productInfo.originPrice.toLocaleString()}원
+            </p>
+            <p className={styles.priceParagraph} >
+              <span className={styles.discountRate}>{discountRate}% </span>
+              <strong className={styles.price}>
+                {productInfo.price.toLocaleString()}원
+              </strong>
+            </p>
+          </>
+        }
       </div>
       { showOptions ?
         <Options

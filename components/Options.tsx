@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "@/styles/Options.module.scss";
 import { product } from "@/types/product";
 import Select from "react-select";
