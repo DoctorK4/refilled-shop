@@ -9,21 +9,21 @@ import { product } from "@/types/product";
 export default function Shop() {
   const [ productList, setProductList ] = useState<product[] | []>([])
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
-  
   const updateProductList = async () => {
     const data:product[] = await getProductList();
     setProductList(data);
-  }
-
+  };
   useEffect(() => {
     updateProductList();
-  }, [])
+  }, []);
 
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>
         사이토카인.<br/>
-        <span className={styles.subtitle}>완벽한 탈모케어를 위한 선택</span>
+        <span className={styles.subtitle}>
+          완벽한 탈모케어를 위한 선택
+        </span>
       </h2>
       <section>
         { !isLoading ?
@@ -34,5 +34,5 @@ export default function Shop() {
         }
       </section>
     </div>
-  )
+  );
 };

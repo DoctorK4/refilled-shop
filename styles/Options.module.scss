@@ -4,10 +4,26 @@
   background-color: #FFF;
 }
 
+.selectBar, .noOption {
+  width: 270px;
+  height: 45px;
+}
+
+.noOption {
+  appearance: none;
+  padding-left: 16px;
+}
+
 .addCartButton {
+  width: 270px;
+  height: 60px;
   background-color: #1a1a1a;
-  
-  & :hover {
-    background-color: #e6e6e6;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #333;
   }
 }
