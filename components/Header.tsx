@@ -15,13 +15,25 @@ export const Header:React.FC = () => {
     <header className={styles.headerwrap}>
       <div className={styles.wrapper}>
         <div className={styles.buttonwrap}>
-          <button className={styles.shopbutton} type="button" onClick={routeToShop}></button>
+          <button 
+            className={styles.shopbutton} 
+            type="button" 
+            onClick={routeToShop} 
+            aria-label="제품 리스트"
+          >
+          </button>
         </div>
         <div className={styles.title}>
           <h1>Refilled</h1>
         </div>
         <div className={styles.buttonwrap}>
-          <button className={styles.cartbutton} type="button" onClick={routeToCart}></button>
+          <button 
+            className={styles.cartbutton} 
+            type="button" 
+            onClick={routeToCart} 
+            aria-label="장바구니"
+          >
+          </button>
         </div>
       </div>
     </header>

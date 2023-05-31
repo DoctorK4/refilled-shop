@@ -3,12 +3,18 @@ import styles from "@/styles/Product.module.scss";
 import Image from "next/image";
 import { Badge } from "./Badge";
 import { Options } from "./Options";
+import { useState } from "react";
 
 export default function Product({ productInfo }:{ productInfo:product }) {
-  
+  const [showOptions, setShowOptions] = useState<boolean>(false); 
+  const handleClick = (e:React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setShowOptions(true);
+  }
+
   return (
     <>
-      <div className={styles.productWrapper}>
+      <div className={styles.productWrapper} onClick={handleClick}>
         <Image 
           width={168} 
           height={168} 
@@ -28,7 +34,14 @@ export default function Product({ productInfo }:{ productInfo:product }) {
         {productInfo.originPrice}
         {productInfo.price}
       </div>
-      <Options productInfo={productInfo}/>
+      { showOptions ?
+        <Options
+          showOptions={showOptions}
+          setShowOptions={setShowOptions}
+          productInfo={productInfo}
+        />
+        : null
+      }
     </>
   )
 } 

@@ -6,7 +6,6 @@ export const customStyles = {
       padding: 20,
       width: "270px",
       height: "45px",
-      boxShadow: 'none',
       borderTop: "1px solid #1A1A1A",
       borderLeft: "1px solid #1A1A1A",
       borderRight: "1px solid #1A1A1A",
@@ -27,12 +26,15 @@ export const customStyles = {
       fontSize: "13px",
       width: 270,
       height: 45,
+      paddingLeft: "4px",
       background: "#FFF",
       border: "1px solid #1A1A1A",
       borderRadius: "0",
       cursor: "pointer",
       color: "#000",
       outline: "none",
+      position: "relative",
+      bottom: "20px",
       "&:hover" : {
         outline: "none",
       },
@@ -50,6 +52,15 @@ export const customStyles = {
       return {
           ...provided,
           color: "#000",
-      }
+        }
     },
+    menu: (provided: any) => ({
+      ...provided,
+      boxShadow: "none",
+      marginTop: "1px",
+      border: "0",
+      position: "absolute",
+      top: "25px",
+      maxHeight: "135px",
+    }),
   };
