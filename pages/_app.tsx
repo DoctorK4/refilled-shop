@@ -21,11 +21,11 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Provider store={store}>
         <MainLayout>
+          <Header></Header>
+          <Component {...pageProps} />
           <div className="hello">
             <h2>지금 리필드를 검색해보세요!</h2>
           </div>
-          <Header></Header>
-          <Component {...pageProps} />
         </MainLayout>
       </Provider>
     </>
