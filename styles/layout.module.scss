@@ -1,17 +1,18 @@
 .mainContainer {
-  width: max-content;
+  width: fit-content;
   background: white;
+  z-index: 10;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .mainContainer {
-    width: auto;
+    width: fit-content;
   }
 }
 
 @media (min-width:375px) {
   .mainContainer {
-    width:max-content;
     margin: 0 auto;
+    width: min-content;
   }
 }
