@@ -1,0 +1,18 @@
+.ShopWrapper {
+  width: 375px;
+  height: calc(1386px - 104px);
+}
+.title {
+  font-size: 20px;
+}
+.subtitle {
+  color: #808080;
+}
+
+.productListWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 32px;
+  row-gap: 32px;
+  grid-column-gap: 7px;
+}

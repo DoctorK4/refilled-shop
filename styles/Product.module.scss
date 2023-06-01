@@ -1,0 +1,49 @@
+.productWrapper {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.productName , .productNameWithBadge{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  width: 160px;
+  margin-bottom: 0;
+}
+.productNameWithBadge {
+  margin-top: 2px;
+}
+
+.productDesc {
+  color: #808080;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.originPrice {
+  color: #666;
+  font-size: 12px;
+  text-decoration-line: line-through;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.priceParagraph {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.discountRate {
+  color: #e94734;
+  font-size: 16px;
+  font-weight: 600;
+
+}
+
+.price {
+  font-size: 16px;
+
+}
