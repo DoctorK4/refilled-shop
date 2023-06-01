@@ -3,22 +3,42 @@
 import styles from "@/styles/Options.module.scss";
 import { product } from "@/types/product";
 import Select from "react-select";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useRef, useState } from "react";
 import { selectedOption } from "@/types/selectedOption";
 import { customStyles } from "@/styles/CustomSelect";
+import { useDispatch } from "react-redux";
+import { selectedItem } from "@/types/cartItem";
 
-export const Options = ({ productInfo, showOptions, setShowOptions}: {
-  productInfo: product, 
-  showOptions: boolean,
+export const Options = ({ productInfo, setShowOptions}: {
+  productInfo: product,
   setShowOptions: React.Dispatch<SetStateAction<boolean>>,
 }) => {
+  const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState<selectedOption>(null);
   const optionObj = productInfo.productOptions.map(item => 
     ({value : item.name, label: item.name})
   );
-  
-  const handleSubmit = () => {
-    // TODO : 선택한 옵션과 일치하는 옵션 정보를 제품 정보와 함께 addtocart
+
+  const handleSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const selectedOptionObj = selectedOption === null ? null : productInfo.productOptions.filter(item => item.name === selectedOption.value)[0];
+    
+    // TODO : 유틸함수로 추상화
+    const selectedItem :selectedItem = {
+      id: productInfo.id,
+      name: productInfo.name,
+      originPrice: productInfo.originPrice,
+      price: productInfo.price,
+      tag: productInfo.tag,
+      imageUrl: productInfo.imageUrl,
+      option: selectedOptionObj,
+    };
+    
+    dispatch({
+      type: "ADD_ITEM",
+      payload: selectedItem,
+    });
+    setShowOptions(false);
   };
 
   return (
@@ -28,31 +48,43 @@ export const Options = ({ productInfo, showOptions, setShowOptions}: {
         <p className={styles.productName}>{productInfo.name}</p>
         <form onSubmit={handleSubmit}>
           { productInfo.productOptions.length !== 0 ?
-            <Select
-            styles={customStyles}
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={optionObj}
-            isSearchable={false}
-            placeholder="옵션 선택"
-            components={{
-              IndicatorSeparator: () => null,
-            }}
-            />
-            : 
+            <>
+              <Select
+                styles={customStyles}
+                defaultValue={selectedOption}
+                onChange={setSelectedOption}
+                options={optionObj}
+                isSearchable={false}
+                placeholder="옵션 선택"
+                components={{
+                  IndicatorSeparator: () => null,
+                }}
+              />
+              <button 
+                className={styles.addCartButton} 
+                type="submit"
+                disabled={selectedOption === null}
+                >
+                장바구니 담기
+              </button>
+            </>
+            :
+            <>
             <select
-            className={styles.noOption}
-            disabled={true}
+              className={styles.noOption}
+              disabled={true}
+              defaultValue={"옵션 없음"}
             > 
-              <option selected>옵션 없음</option>
+              <option value="옵션 없음">옵션 없음</option>
             </select>
+            <button 
+              className={styles.addCartButton} 
+              type="submit" 
+            >
+              장바구니 담기
+            </button>
+            </>
           }
-          <button 
-            className={styles.addCartButton} 
-            type="submit" 
-          >
-            장바구니 담기
-          </button>
         </form>
       </div>
     </div>

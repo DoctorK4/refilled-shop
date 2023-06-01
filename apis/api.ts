@@ -17,7 +17,7 @@ export const getProductList = async () => {
         withCredentials: true,
       }
     });
-    console.log(response);
+    // console.log(response);
     return response.data;
   } catch (error: unknown) {
     if (error instanceof CustomError_Class){

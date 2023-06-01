@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 import styles from "../styles/Badge.module.scss"
 
 export const Badge = ({ badgeType, children }: { 
-  badgeType: "NEW" | "BEST",
+  badgeType?: "NEW" | "BEST" | "",
   children: ReactNode,
 }) => {
   return (

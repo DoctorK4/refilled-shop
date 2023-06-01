@@ -4,10 +4,10 @@ export type product = {
   originPrice: number,
   price: number,
   tag: {
-    color: string,
-    text: "NEW" | "BEST",
-  } | undefined, 
-  desc: string | null,
+    color?: string,
+    text?: "NEW" | "BEST",
+  } | "", 
+  desc: string | "",
   imageUrl : string,
   productOptions: productOptions[] | [], 
 }

@@ -5,26 +5,28 @@ import { Badge } from "./Badge";
 import { Options } from "./Options";
 import { useState } from "react";
 
-export default function Product({ productInfo }:{ productInfo:product }) {
+export default function Product({ productInfo }: { productInfo: product }) {
   const [showOptions, setShowOptions] = useState<boolean>(false); 
   const handleClick = (e:React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setShowOptions(true);
-  }
-  const discountRate = Math.round(productInfo.price/productInfo.originPrice * 100);
+  };
+  // TODO : 유틸함수로 추상화
+  const discountRate = Math.round(100 - ((productInfo.price/productInfo.originPrice)* 100));
 
   return (
     <>
       <div className={styles.productWrapper} onClick={handleClick}>
         <Image 
           width={168} 
-          height={168} 
+          height={168}
+          priority={true} 
           src={productInfo.imageUrl} 
           alt=""
         />
         { productInfo.tag ? 
           <>
-            <Badge badgeType={productInfo?.tag.text}>
+            <Badge badgeType={productInfo.tag?.text}>
               {productInfo?.tag.text}
             </Badge> 
             <h3 className={styles.productNameWithBadge}>
@@ -61,12 +63,11 @@ export default function Product({ productInfo }:{ productInfo:product }) {
       </div>
       { showOptions ?
         <Options
-          showOptions={showOptions}
           setShowOptions={setShowOptions}
           productInfo={productInfo}
         />
         : null
       }
     </>
-  )
-} 
+  );
+} ;
