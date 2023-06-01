@@ -1,15 +1,15 @@
-import type { AppProps } from 'next/app'
-import '../styles/global.scss'
-import { Header } from '@/components/Header'
-import { Provider } from 'react-redux'
-import { store } from '@/store/reducer/cartReducer'
-import Head from 'next/head'
+import type { AppProps } from 'next/app';
+import '../styles/global.scss';
+import { Header } from '@/components/Header';
+import { Provider } from 'react-redux';
+import { store } from '@/store/reducer/cartReducer';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-      <title>리필드</title>
+        <title>리필드</title>
         <link
           rel="icon"
           type="image/png"
@@ -22,5 +22,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Provider>
     </>
-  )
+  );
 }

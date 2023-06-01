@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import styles from '@/styles/Shop.module.scss'
-import Product from '@/components/Product'
-import { getProductList } from '@/apis/api'
-import { product } from '@/types/product'
+import { useState, useEffect } from 'react';
+import styles from '@/styles/Shop.module.scss';
+import Product from '@/components/Product';
+import { getProductList } from '@/apis/api';
+import { product } from '@/types/product';
 
 export default function Shop() {
-  const [productList, setProductList] = useState<product[] | []>([])
+  const [productList, setProductList] = useState<product[] | []>([]);
   const updateProductList = async () => {
-    const data: product[] = await getProductList()
-    setProductList(data)
-  }
+    const data: product[] = await getProductList();
+    setProductList(data);
+  };
 
   useEffect(() => {
-    updateProductList()
-  }, [])
+    updateProductList();
+  }, []);
 
   return (
     <div className={styles.ShopWrapper}>
@@ -30,5 +30,5 @@ export default function Shop() {
         ))}
       </section>
     </div>
-  )
+  );
 }
