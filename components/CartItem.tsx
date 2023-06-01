@@ -26,6 +26,7 @@ export const CartItem = ({item}:{item: selectedItem}) => {
         src={item.imageUrl} 
         alt=""
         priority={true}
+        className={styles.productImage}
       />
       <button
         className={styles.deleteButton}
@@ -34,25 +35,29 @@ export const CartItem = ({item}:{item: selectedItem}) => {
         onClick={handleClick}
       >
       </button>
-      { item.tag !== "" ?
-        <Badge badgeType={item.tag.text}>
-          {item.tag.text}
-        </Badge>
-      : null
-      }
-      <h3 className={styles.productName}>
-        {item.name}
-      </h3>
-      <p className={styles.itemOption}>{item.option?.name}</p>
-      { discountRate === 0 ? 
-        null
-        : 
-        <>
-          <span className={styles.originalPrice}>{originalPrice.toLocaleString()}원</span>
-          <span className={styles.discountRate}>{discountRate}%</span>
-        </>
-      }
-      <strong>{discountedPrice.toLocaleString()}원</strong>
+      <section className={styles.productContent}>
+        { item.tag !== "" ?
+          <Badge badgeType={item.tag.text}>
+            {item.tag.text}
+          </Badge>
+          : null
+        }
+        <h3 className={styles.productName}>
+          {item.name}
+        </h3>
+        <p className={styles.itemOption}>{item.option?.name}</p>
+        <p className={styles.priceInfo}>
+          { discountRate === 0 ? 
+          null
+          : 
+          <>
+            <span className={styles.originalPrice}>{originalPrice.toLocaleString()}원</span>
+            <strong className={styles.discountRate}>{discountRate}%</strong>
+          </>
+          }
+          <strong className={styles.total}>{discountedPrice.toLocaleString()}원</strong>
+        </p>
+      </section>
     </div>
   )
 }

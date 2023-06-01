@@ -1,5 +1,13 @@
 .CartWrapper {
-  
+  ul {
+    margin-left: 0;
+    padding: 0;
+    margin-right: 0;
+    
+    li {
+      margin: 0 auto;
+    }
+  }
 }
 
 .itemUnit {
@@ -16,7 +24,6 @@
   padding: 18px 24px;
   
   .buyButton {
-    
     color: #FFF;
     font-size: 16px;
     font-weight: 400;
@@ -25,5 +32,10 @@
     width: 327px;
     height: 48px;
     text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background: #808080;
+    }
   }
 }

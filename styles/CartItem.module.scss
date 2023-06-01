@@ -1,3 +1,61 @@
+.itemWrapper {
+  margin: 40px 30px;
+  position: relative;
+  right: 10px
+}
+
+.productImage {
+  float: left;
+  margin-right: 12px;
+}
+
+.productName {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.productContent {
+  display: flex;
+  flex-direction: column;
+  padding-right: 19px;
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  .priceInfo {
+    text-align: right;
+  }
+}
+
+.itemOption {
+  color: #666;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  text-align: right;
+  color: #666;
+  font-size: 12px;
+  display: block;
+}
+
+.discountRate {
+  font-size: 12px;
+  color: #E94734;
+  text-align: right;
+  margin-right: 4px;
+}
+
+.total {
+  text-align: right;
+  letter-spacing: -0.02em;
+}
+
 .deleteButton {
   width: 12px;
   height: 12px;
@@ -7,4 +65,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
