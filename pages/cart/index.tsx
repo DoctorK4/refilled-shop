@@ -11,8 +11,8 @@ export default function Cart() {
     <div className={styles.CartWrapper}>
       {cartItems.length > 0 ? (
         <ul>
-          {cartItems.map((item) => (
-            <li key={item.id} className={styles.itemUnit}>
+          {cartItems.map((item, index) => (
+            <li key={`${item.id}`+`${item.option?.id}`+`${index}`} className={styles.itemUnit}>
               <CartItem item={item} />
             </li>
           ))}
@@ -20,9 +20,11 @@ export default function Cart() {
       ) : (
         <p>장바구니가 비어있습니다.</p>
       )}
-      <button className={styles.buyButton} type="button">
-        {cartItems.length}개 | {cartItems.length === 0 ? 0 : getSubTotal(cartItems).toLocaleString()}원 구매하기
-      </button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.buyButton} type="button">
+          {cartItems.length}개 | {cartItems.length === 0 ? 0 : getSubTotal(cartItems).toLocaleString()}원 <strong>구매하기</strong>
+        </button>
+      </div>
     </div>
   );
 };

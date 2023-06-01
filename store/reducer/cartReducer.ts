@@ -17,11 +17,12 @@ const reducer = (state = initialState, action: AppAction): AppState => {
     case 'DELETE_ITEM':
       return {
         ...state,
-        cartItems: state.cartItems.filter((item) => item.id !== action.payload.id),
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload.id || item.option?.id !== action.payload.option?.id),
       };
     default:
       return state;
   }
 };
+
 export const store = createStore(reducer);
 export type RootState = ReturnType<typeof store.getState>;

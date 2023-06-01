@@ -8,6 +8,7 @@ import { selectedOption } from "@/types/selectedOption";
 import { customStyles } from "@/styles/CustomSelect";
 import { useDispatch } from "react-redux";
 import { selectedItem } from "@/types/cartItem";
+import { getPayload } from "@/utils/getPayload";
 
 export const Options = ({ productInfo, setShowOptions}: {
   productInfo: product,
@@ -21,19 +22,9 @@ export const Options = ({ productInfo, setShowOptions}: {
 
   const handleSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const selectedOptionObj = selectedOption === null ? null : productInfo.productOptions.filter(item => item.name === selectedOption.value)[0];
-    
-    // TODO : 유틸함수로 추상화
-    const selectedItem :selectedItem = {
-      id: productInfo.id,
-      name: productInfo.name,
-      originPrice: productInfo.originPrice,
-      price: productInfo.price,
-      tag: productInfo.tag,
-      imageUrl: productInfo.imageUrl,
-      option: selectedOptionObj,
-    };
-    
+    const selectedOptionObj = selectedOption === null ? null 
+      : (productInfo.productOptions.filter(item => item.name === selectedOption.value)[0]);
+    const selectedItem = getPayload(productInfo, selectedOptionObj);
     dispatch({
       type: "ADD_ITEM",
       payload: selectedItem,
