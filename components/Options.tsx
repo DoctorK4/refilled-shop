@@ -30,7 +30,6 @@ export const Options = ({ productInfo, setShowOptions}: {
       : (productInfo.productOptions.filter(item => item.name === selectedOption.value)[0]);
       const selectedItem = getPayload(productInfo, selectedOptionObj);
       const checkSameItem = cartItems.filter(item => item.id === selectedItem.id && item.option?.id === selectedItem.option?.id)
-      console.log(checkSameItem);
       if (checkSameItem.length > 0){
         alert('이미 장바구니에 추가된 상품입니다.');
       } else {
