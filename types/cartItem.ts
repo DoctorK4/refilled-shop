@@ -11,7 +11,7 @@ export type selectedItem = {
   } | "",
   imageUrl : string,
   option: productOptions | null,
-}
+};
 
 export interface AppState {
   cartItems: selectedItem[] | [];
@@ -20,9 +20,9 @@ export interface AppState {
 export interface AddToCartAction {
   type: 'ADD_ITEM';
   payload: selectedItem;
-}
+};
 
 export interface RemoveFromCartAction {
   type: 'DELETE_ITEM';
   payload: selectedItem;
-}
+};

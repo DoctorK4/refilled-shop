@@ -10,11 +10,11 @@ export type product = {
   desc: string | "",
   imageUrl : string,
   productOptions: productOptions[] | [], 
-}
+};
 
 export type productOptions = {
   id:number,
   name:string,
   price:number,
   stock:number,
-}
+};

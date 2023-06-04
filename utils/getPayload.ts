@@ -1,7 +1,7 @@
 import { selectedItem } from "@/types/cartItem";
 import { product, productOptions } from "@/types/product";
 
-export const getPayload = (productInfo: product, selectedOptionObj: productOptions | null):selectedItem => {
+export const getPayload = (productInfo: product, selectedOptionObj: productOptions | null): selectedItem => {
   const payload = {
     id: productInfo.id,
     name: productInfo.name,

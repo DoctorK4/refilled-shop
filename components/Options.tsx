@@ -9,27 +9,37 @@ import { customStyles } from "@/styles/CustomSelect";
 import { useDispatch } from "react-redux";
 import { selectedItem } from "@/types/cartItem";
 import { getPayload } from "@/utils/getPayload";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/reducer/cartReducer";
+import "@total-typescript/ts-reset/array-includes";
 
 export const Options = ({ productInfo, setShowOptions}: {
   productInfo: product,
   setShowOptions: React.Dispatch<SetStateAction<boolean>>,
 }) => {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state: RootState) => state.cartItems);
   const [selectedOption, setSelectedOption] = useState<selectedOption>(null);
   const optionObj = productInfo.productOptions.map(item => 
-    ({value : item.name, label: item.name})
-  );
-
-  const handleSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const selectedOptionObj = selectedOption === null ? null 
+      ({value : item.name, label: item.name})
+    );
+    
+    const handleSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const selectedOptionObj = selectedOption === null ? null 
       : (productInfo.productOptions.filter(item => item.name === selectedOption.value)[0]);
-    const selectedItem = getPayload(productInfo, selectedOptionObj);
-    dispatch({
-      type: "ADD_ITEM",
-      payload: selectedItem,
-    });
-    setShowOptions(false);
+      const selectedItem = getPayload(productInfo, selectedOptionObj);
+      const checkSameItem = cartItems.filter(item => item.id === selectedItem.id && item.option?.id === selectedItem.option?.id)
+      console.log(checkSameItem);
+      if (checkSameItem.length > 0){
+        alert('이미 장바구니에 추가된 상품입니다.');
+      } else {
+        dispatch({
+          type: "ADD_ITEM",
+          payload: selectedItem,
+        });
+        setShowOptions(false);
+      }
   };
 
   return (
