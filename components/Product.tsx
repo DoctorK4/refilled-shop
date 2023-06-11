@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Badge } from "./Badge";
 import { Options } from "./Options";
 import { useState } from "react";
+import { getDistcountRate } from "@/utils/getDiscountRate";
 
 export default function Product({ productInfo }: { productInfo: product }) {
   const [showOptions, setShowOptions] = useState<boolean>(false); 
@@ -11,9 +12,7 @@ export default function Product({ productInfo }: { productInfo: product }) {
     e.preventDefault();
     setShowOptions(true);
   };
-  // TODO : 유틸함수로 추상화
-  const discountRate = Math.round(100 - ((productInfo.price/productInfo.originPrice)* 100));
-
+  const discountRate = getDistcountRate(productInfo.price, productInfo.originPrice);
   return (
     <>
       <div className={styles.productWrapper} onClick={handleClick}>
