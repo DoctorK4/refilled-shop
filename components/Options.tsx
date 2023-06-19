@@ -3,11 +3,10 @@
 import styles from "@/styles/Options.module.scss";
 import { product } from "@/types/product";
 import Select from "react-select";
-import { SetStateAction, useRef, useState } from "react";
+import { SetStateAction, useState } from "react";
 import { selectedOption } from "@/types/selectedOption";
 import { customStyles } from "@/styles/CustomSelect";
 import { useDispatch } from "react-redux";
-import { selectedItem } from "@/types/cartItem";
 import { getPayload } from "@/utils/getPayload";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/reducer/cartReducer";

@@ -1,7 +1,14 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/shop");
+  }, [])
+
   return (
-  <p>
-    홈화면 입니다.
-  </p>
+    <></>
   );
 };
