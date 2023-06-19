@@ -8,11 +8,28 @@
   .mainContainer {
     width: fit-content;
   }
+
 }
 
 @media (min-width:375px) {
   .mainContainer {
     margin: 0 auto;
     width: min-content;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .hello {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .hello {
+    position: relative;
+    bottom: 60vh;
+    left: -330px;
+    font-size: 25px;
+    text-align: center;
   }
 }

@@ -16,19 +16,9 @@ body {
 @media (min-width:376px) {
   body {
     background-color: #f2f2f2;
-    width: 1024px;
   }
-  .hello {
-    background-color: transparent;
-    position: absolute;
-    top: 50vh;
-    left: 0;
-    overflow: hidden;
-  }
+
 }
 
-@media (max-width: 375px) {
-  .hello {
-    display: none;
-  }
-}
+
+
