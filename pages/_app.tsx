@@ -6,7 +6,6 @@ import { store } from '@/store/reducer/cartReducer';
 import Head from 'next/head';
 import MainLayout from './layout';
 
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -23,9 +22,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <MainLayout>
           <Header></Header>
           <Component {...pageProps} />
-          <div className="hello">
-            <h2>지금 리필드를 검색해보세요!</h2>
-          </div>
         </MainLayout>
       </Provider>
     </>
