@@ -18,7 +18,10 @@ export default function Cart() {
           ))}
         </ul>
       ) : (
-        <p>장바구니가 비어있습니다.</p>
+        <p className={styles.emptyMessage}>
+          장바구니가 비어있습니다. <br />
+          제품을 추가해주세요.
+        </p>
       )}
       <div className={styles.buttonContainer}>
         <button className={styles.buyButton} type="button">
