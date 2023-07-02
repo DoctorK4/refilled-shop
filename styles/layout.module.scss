@@ -2,13 +2,13 @@
   width: fit-content;
   background: white;
   z-index: 10;
+  height: 100%;
 }
 
 @media (max-width: 376px) {
   .mainContainer {
     width: fit-content;
   }
-
 }
 
 @media (min-width:375px) {
